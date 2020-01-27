@@ -1,8 +1,9 @@
-package pl.bikepoint.bikeRentalApp.model.contract;
+package pl.bikepoint.bikeRentalApp.model.bike;
 
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Setter
 @Getter
@@ -11,16 +12,13 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @ToString
 
-@Entity
-@Table(name = "rental_duration")
+@Entity(name = "helmets")
+@Table(name="helmets")
 
-public class RentalDuration {
+public class Helmet implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer oneDay;
-    private Integer twoDays;
-    private Integer threeDays;
-
+    private String name;
 }

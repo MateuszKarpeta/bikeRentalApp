@@ -1,6 +1,18 @@
 package pl.bikepoint.bikeRentalApp.model.person;
 
-public class Employee extends Person {
-    private Long employeeId;
+import lombok.*;
+
+import javax.persistence.Entity;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
+@ToString
+
+@Entity
+public class Employee {
+    private Long id;
     private String department;
 }
