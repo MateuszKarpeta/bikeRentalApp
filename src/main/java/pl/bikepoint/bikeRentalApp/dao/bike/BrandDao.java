@@ -1,4 +1,4 @@
-package pl.bikepoint.bikeRentalApp.model.bike;
+package pl.bikepoint.bikeRentalApp.dao.bike;
 
 import lombok.*;
 
@@ -7,22 +7,19 @@ import java.io.Serializable;
 import java.util.List;
 
 
-@Setter
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@ToString
-
+@Builder
+@Table(name = "brands")
 @Entity
-//@Table(name = "brands")
-public class Brand implements Serializable {
+public class BrandDao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String brandName;
 
-    @OneToMany(mappedBy ="brandName")
-    public List<Bike> bikeListByBrand;
+    @OneToMany
+    public List<BikeDao> bikeDaoListByBrand;
 }

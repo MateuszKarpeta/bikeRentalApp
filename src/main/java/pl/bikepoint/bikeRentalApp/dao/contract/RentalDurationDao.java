@@ -1,20 +1,16 @@
-package pl.bikepoint.bikeRentalApp.model.contract;
+package pl.bikepoint.bikeRentalApp.dao.contract;
 
 import lombok.*;
 
 import javax.persistence.*;
 
-@Setter
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@ToString
-
+@Builder
+@Table(name = "rentals")
 @Entity
-@Table(name = "rental_duration")
-
-public class RentalDuration {
+public class RentalDurationDao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +19,7 @@ public class RentalDuration {
     private Integer twoDays;
     private Integer threeDays;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "pricelist_id")
-    private PriceList priceList;
+    private PriceListDao priceListDao;
 }
