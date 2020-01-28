@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Setter
 @Getter
@@ -13,7 +14,7 @@ import java.io.Serializable;
 @ToString
 
 @Entity
-@Table(name = "address")
+
 public class Address implements Serializable {
 
     @Id
@@ -26,4 +27,9 @@ public class Address implements Serializable {
     private Integer houseNumber;
     private long phone;
 
+    @OneToMany(mappedBy = "address")
+    private List<Customer> customerList;
+
+    @OneToMany(mappedBy = "address")
+    private List<Employee> employeeList;
 }

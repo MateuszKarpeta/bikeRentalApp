@@ -23,4 +23,7 @@ public class RentalDuration {
     private Integer twoDays;
     private Integer threeDays;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pricelist_id")
+    private PriceList priceList;
 }

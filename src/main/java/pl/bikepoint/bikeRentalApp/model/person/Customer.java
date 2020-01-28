@@ -1,9 +1,11 @@
 package pl.bikepoint.bikeRentalApp.model.person;
 
 import lombok.*;
+import pl.bikepoint.bikeRentalApp.model.contract.OrderlItem;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Setter
 @Getter
@@ -25,8 +27,11 @@ public class Customer implements Serializable {
     private String email;
     private Long personalId;
 
-   /* @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "addresses",
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<OrderlItem> orderlItemList;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address",
             foreignKey = @ForeignKey(name = "address_id_fk", value = ConstraintMode.NO_CONSTRAINT))
-    private AddressEntity address;*/
+    private Address address;
 }

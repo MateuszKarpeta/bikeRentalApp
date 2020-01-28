@@ -1,10 +1,11 @@
-/*
 package pl.bikepoint.bikeRentalApp.model.bike;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+
 
 @Setter
 @Getter
@@ -13,17 +14,15 @@ import java.io.Serializable;
 @EqualsAndHashCode
 @ToString
 
-@Entity(name = "helmets")
-@Table(name="helmets")
-
-public class Helmet implements Serializable {
+@Entity
+//@Table(name = "brands")
+public class Brand implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String brandName;
 
-
-
+    @OneToMany(mappedBy ="brandName")
+    public List<Bike> bikeListByBrand;
 }
-*/

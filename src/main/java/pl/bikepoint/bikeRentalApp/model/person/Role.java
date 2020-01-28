@@ -1,5 +1,4 @@
-package pl.bikepoint.bikeRentalApp.model.company;
-
+package pl.bikepoint.bikeRentalApp.model.person;
 
 import lombok.*;
 
@@ -16,12 +15,11 @@ import javax.persistence.Id;
 @ToString
 
 @Entity
+public class Role {
 
-public class Company {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String companyName;
-    private String department;
+    private String name;
 
 }
