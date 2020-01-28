@@ -24,6 +24,7 @@ public class PriceList implements Serializable {
     @OneToMany(mappedBy = "priceList", fetch = FetchType.LAZY)
     private List<RentalDuration> rentalDurations;
 
+
 }
 
 /**

@@ -1,7 +1,17 @@
 package pl.bikepoint.bikeRentalApp.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import pl.bikepoint.bikeRentalApp.model.person.Employee;
 
-public interface EmployeeRepository extends JpaRepository<Employee,Long> {
+import java.util.Set;
+
+@Repository
+public interface EmployeeRepository extends CrudService<Employee, Long> {
+    Set<Employee> findAll();
+
+    Employee findById(Employee id);
+
+    Employee save(Employee object);
+
+    void deleteById(Employee id);
 }

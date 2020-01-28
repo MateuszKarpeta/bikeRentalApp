@@ -34,4 +34,5 @@ public class Customer implements Serializable {
     @JoinColumn(name = "address",
             foreignKey = @ForeignKey(name = "address_id_fk", value = ConstraintMode.NO_CONSTRAINT))
     private Address address;
+
 }

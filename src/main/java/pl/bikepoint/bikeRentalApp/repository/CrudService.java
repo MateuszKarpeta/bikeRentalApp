@@ -1,10 +1,16 @@
 package pl.bikepoint.bikeRentalApp.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CrudService <T,ID> extends JpaRepository {
-    /*Set<T> findAll();
-    T findById (ID id);
-    T save (T object);
-    void deleteById (ID id);*/
+import java.util.Set;
+
+@Repository  //extends JpaRepository
+public interface CrudService<T, ID> {
+    Set<T> findAll();
+
+    T findById(ID id);
+
+    T save(T object);
+
+    void deleteById(ID id);
 }

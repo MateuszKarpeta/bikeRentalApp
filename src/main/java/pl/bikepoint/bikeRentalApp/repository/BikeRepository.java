@@ -1,18 +1,19 @@
 package pl.bikepoint.bikeRentalApp.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import pl.bikepoint.bikeRentalApp.model.bike.Bike;
 
-import java.util.Optional;
-
-public interface BikeRepository extends JpaRepository<Bike,Long> {
+@Repository
+public interface BikeRepository extends CrudService<Bike, Long> {
     Bike findBikeByBikeTypeE();
+
     Bike findBikeByName();
 
-    Optional<Bike> findById (Long id);
-    Bike deleteBike (Long bikeId);
+    Bike findById(Long id);
 
-    public Bike updateBike ();
+    Bike deleteBike(Long bikeId);
+
+    public Bike updateBike();
 
     //pageing do wyswietlania informacji
 }
