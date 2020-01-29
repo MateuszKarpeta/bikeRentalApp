@@ -19,7 +19,7 @@ public class PriceListDao implements Serializable {
     private Long id;
 
     @OneToMany
-    private List<RentalDurationDao> rentalDurationDaos;
+    private List<RentalDurationDao> rentals;
 }
 
 

@@ -21,5 +21,5 @@ public class BrandDao implements Serializable {
     private String brandName;
 
     @OneToMany
-    public List<BikeDao> bikeDaoListByBrand;
+    private List<BikeDao> bikes;
 }

@@ -5,7 +5,6 @@ import pl.bikepoint.bikeRentalApp.enums.BikeTypeE;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @AllArgsConstructor

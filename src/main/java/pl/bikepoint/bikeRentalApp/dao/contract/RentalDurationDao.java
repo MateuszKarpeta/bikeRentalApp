@@ -21,5 +21,5 @@ public class RentalDurationDao {
 
     @ManyToOne
     @JoinColumn(name = "pricelist_id")
-    private PriceListDao priceListDao;
+    private PriceListDao priceList;
 }

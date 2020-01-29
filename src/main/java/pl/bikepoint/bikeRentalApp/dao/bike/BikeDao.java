@@ -1,7 +1,7 @@
 package pl.bikepoint.bikeRentalApp.dao.bike;
 
 import lombok.*;
-import pl.bikepoint.bikeRentalApp.dao.contract.OrderItemDao;
+import pl.bikepoint.bikeRentalApp.dao.contract.OrderDao;
 import pl.bikepoint.bikeRentalApp.enums.FrameSize;
 
 import javax.persistence.*;
@@ -37,6 +37,6 @@ public class BikeDao implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    private OrderItemDao orderItemDao;
+    private OrderDao orderDao;
 
 }
