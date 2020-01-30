@@ -1,5 +1,6 @@
 package pl.bikepoint.bikeRentalApp.dao.bike;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import pl.bikepoint.bikeRentalApp.dao.contract.OrderDao;
 import pl.bikepoint.bikeRentalApp.enums.FrameSize;
@@ -16,7 +17,7 @@ import java.io.Serializable;
 public class BikeDao implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
 
@@ -26,13 +27,11 @@ public class BikeDao implements Serializable {
     private Float price;
 
     @ManyToOne
-    @JoinColumn(name = "bike_type",
-            foreignKey = @ForeignKey(name = "bikeType_id_fk"))
+    @JoinColumn(name = "bike_type")
     private BikeTypeDao bikeTypeDaoE;
 
     @ManyToOne
-    @JoinColumn(name = "brand",
-            foreignKey = @ForeignKey(name = "brand_id_fk", value = ConstraintMode.NO_CONSTRAINT))
+    @JoinColumn(name = "brand")
     private BrandDao brandDaoName;
 
     @ManyToOne
