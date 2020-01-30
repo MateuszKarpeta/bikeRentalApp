@@ -79,7 +79,7 @@ public class Mapper {
                 .id(orderDto.getId())
                 .rentalPrice(orderDto.getRentalPrice())
                 .helmetPrice(orderDto.getHelmetPrice())
-                .pedalsPrice(orderDto.getPedalsPrice())
+                .pedalPrice(orderDto.getPedalPrice())
                 .bikes(orderDto.getBikes())
                 .prices(orderDto.getPrices())
                 .build();
@@ -90,7 +90,7 @@ public class Mapper {
                 .id(orderDao.getId())
                 .rentalPrice(orderDao.getRentalPrice())
                 .helmetPrice(orderDao.getHelmetPrice())
-                .pedalsPrice(orderDao.getPedalsPrice())
+                .pedalPrice(orderDao.getPedalPrice())
                 .bikes(orderDao.getBikes())
                 .prices(orderDao.getPrices())
                 .build();
@@ -129,7 +129,7 @@ public class Mapper {
                 .priceList(rentalDurationDto.getPriceList())
                 .build();
     }
-
+}
 
 
 
