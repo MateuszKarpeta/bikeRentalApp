@@ -4,7 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.bikepoint.rental.dao.contract.PriceListDao;
+
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -13,9 +14,6 @@ import pl.bikepoint.rental.dao.contract.PriceListDao;
 public class RentalDurationDto {
 
     private Long id;
-    private Integer oneDay;
-    private Integer twoDays;
-    private Integer threeDays;
-    private PriceListDao priceList;
-
+    private LocalDate rentStartDate;
+    private LocalDate rendEndDate;
 }

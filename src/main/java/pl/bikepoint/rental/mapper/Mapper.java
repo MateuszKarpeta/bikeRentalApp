@@ -4,13 +4,11 @@ import pl.bikepoint.rental.dao.bike.BikeDao;
 import pl.bikepoint.rental.dao.bike.BikeTypeDao;
 import pl.bikepoint.rental.dao.bike.BrandDao;
 import pl.bikepoint.rental.dao.contract.OrderDao;
-import pl.bikepoint.rental.dao.contract.PriceListDao;
 import pl.bikepoint.rental.dao.contract.RentalDurationDao;
 import pl.bikepoint.rental.dto.bike.BikeDto;
 import pl.bikepoint.rental.dto.bike.BikeTypeDto;
 import pl.bikepoint.rental.dto.bike.BrandDto;
 import pl.bikepoint.rental.dto.contract.OrderDto;
-import pl.bikepoint.rental.dto.contract.PriceListDto;
 import pl.bikepoint.rental.dto.contract.RentalDurationDto;
 
 public class Mapper {
@@ -24,10 +22,10 @@ public class Mapper {
                 .name(bikeDto.getName())
                 .modelYear(bikeDto.getModelYear())
                 .frameSize(bikeDto.getFrameSize())
-                .brandDaoName(bikeDto.getBrandDaoName())
+                .brand(bikeDto.getBrand())
                 .price(bikeDto.getPrice())
-                .bikeTypeDaoE(bikeDto.getBikeTypeDaoE())
-                .orderDao(bikeDto.getOrderDao())
+                .bikeType(bikeDto.getBikeType())
+                .orders(bikeDto.getOrders())
                 .build();
     }
 
@@ -37,10 +35,10 @@ public class Mapper {
                 .name(bikeDao.getName())
                 .modelYear(bikeDao.getModelYear())
                 .frameSize(bikeDao.getFrameSize())
-                .brandDaoName(bikeDao.getBrandDaoName())
+                .brand(bikeDao.getBrand())
                 .price(bikeDao.getPrice())
-                .bikeTypeDaoE(bikeDao.getBikeTypeDaoE())
-                .orderDao(bikeDao.getOrderDao())
+                .bikeType(bikeDao.getBikeType())
+                .orders(bikeDao.getOrders())
                 .build();
     }
 
@@ -80,8 +78,8 @@ public class Mapper {
                 .rentalPrice(orderDto.getRentalPrice())
                 .helmetPrice(orderDto.getHelmetPrice())
                 .pedalPrice(orderDto.getPedalPrice())
-                .bikes(orderDto.getBikes())
-                .prices(orderDto.getPrices())
+                .bike(orderDto.getBike())
+                .rental(orderDto.getRental())
                 .build();
     }
 
@@ -91,42 +89,24 @@ public class Mapper {
                 .rentalPrice(orderDao.getRentalPrice())
                 .helmetPrice(orderDao.getHelmetPrice())
                 .pedalPrice(orderDao.getPedalPrice())
-                .bikes(orderDao.getBikes())
-                .prices(orderDao.getPrices())
-                .build();
-    }
-
-    public static PriceListDto map(PriceListDao priceListDao) {
-        return PriceListDto.builder()
-                .id(priceListDao.getId())
-                .rentals(priceListDao.getRentals())
-                .build();
-    }
-
-    public static PriceListDao map(PriceListDto priceListDto) {
-        return PriceListDao.builder()
-                .id(priceListDto.getId())
-                .rentals(priceListDto.getRentals())
+                .bike(orderDao.getBike())
+                .rental(orderDao.getRental())
                 .build();
     }
 
     public static RentalDurationDto map(RentalDurationDao rentalDurationDao) {
         return RentalDurationDto.builder()
                 .id(rentalDurationDao.getId())
-                .oneDay(rentalDurationDao.getOneDay())
-                .twoDays(rentalDurationDao.getTwoDays())
-                .threeDays(rentalDurationDao.getThreeDays())
-                .priceList(rentalDurationDao.getPriceList())
+                .rentStartDate(rentalDurationDao.getRentStartDate())
+                .rendEndDate(rentalDurationDao.getRendEndDate())
                 .build();
     }
 
     public static RentalDurationDao map(RentalDurationDto rentalDurationDto) {
         return RentalDurationDao.builder()
                 .id(rentalDurationDto.getId())
-                .oneDay(rentalDurationDto.getOneDay())
-                .twoDays(rentalDurationDto.getTwoDays())
-                .threeDays(rentalDurationDto.getThreeDays())
-                .priceList(rentalDurationDto.getPriceList())
+                .rentStartDate(rentalDurationDto.getRentStartDate())
+                .rendEndDate(rentalDurationDto.getRendEndDate())
                 .build();
     }
 }

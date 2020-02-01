@@ -5,10 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.bikepoint.rental.dao.bike.BikeDao;
-import pl.bikepoint.rental.dao.contract.PriceListDao;
+import pl.bikepoint.rental.dao.contract.RentalDurationDao;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -20,7 +19,7 @@ public class OrderDto {
     private BigDecimal rentalPrice;
     private Float helmetPrice;
     private Float pedalPrice;
-    private List<PriceListDao> prices;
-    private List<BikeDao> bikes;
+    private RentalDurationDao rental;
+    private BikeDao bike;
 
 }

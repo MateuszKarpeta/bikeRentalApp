@@ -28,14 +28,13 @@ public class BikeDao implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "bike_type")
-    private BikeTypeDao bikeTypeDaoE;
+    private BikeTypeDao bikeType;
 
     @ManyToOne
     @JoinColumn(name = "brand")
-    private BrandDao brandDaoName;
+    private BrandDao brand;
 
     @OneToMany
-//    @JoinColumn(name = "order_id")
     private List<OrderDao> orders;
 
 }

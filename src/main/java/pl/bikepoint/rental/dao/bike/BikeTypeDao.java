@@ -18,7 +18,6 @@ public class BikeTypeDao implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="type")
     @Enumerated(EnumType.STRING)
     private BikeTypeE type;
 

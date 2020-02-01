@@ -18,7 +18,4 @@ public class RentalDurationDao {
     private Long id;
     private LocalDate rentStartDate;
     private LocalDate rendEndDate;
-//    @ManyToOne
-//    @JoinColumn(name = "pricelist_id")
-//    private PriceListDao priceList;
 }
