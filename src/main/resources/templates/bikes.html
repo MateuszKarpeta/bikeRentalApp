@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Bikes</title>
+</head>
+<body>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Frame</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="b : ${bikes}">
+        <td th:text="${b.name}"></td>
+        <td th:text="${b.frameSize}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
