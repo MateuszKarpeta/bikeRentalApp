@@ -1,12 +1,11 @@
 package pl.bikepoint.rental.dao.contract;
 
 import lombok.*;
-import pl.bikepoint.rental.dao.bike.BikeDao;
+import pl.bikepoint.rental.dao.bike.Bike;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +13,7 @@ import java.util.List;
 @Builder
 @Table(name = "orders")
 @Entity
-public class OrderDao implements Serializable {
+public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +22,10 @@ public class OrderDao implements Serializable {
     private Float helmetPrice;
     private Float pedalPrice;
 
-    @OneToOne
-    private RentalDurationDao rental;
+    @OneToOne(cascade = CascadeType.ALL)
+    private RentalDuration rental;
 
-    @ManyToOne
-    private BikeDao bike;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Bike bike;
 
 }

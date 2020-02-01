@@ -1,7 +1,10 @@
 package pl.bikepoint.rental.dao.bike;
 
-import lombok.*;
-import pl.bikepoint.rental.dao.contract.OrderDao;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import pl.bikepoint.rental.dao.contract.Order;
 import pl.bikepoint.rental.enums.FrameSize;
 
 import javax.persistence.*;
@@ -12,15 +15,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "bikes")
+@Table(name = "bike")
 @Entity
-public class BikeDao implements Serializable {
+public class Bike implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-
     @Enumerated(EnumType.STRING)
     private FrameSize frameSize;
     private Integer modelYear;
@@ -28,13 +30,13 @@ public class BikeDao implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "bike_type")
-    private BikeTypeDao bikeType;
+    private BikeType bikeType;
 
     @ManyToOne
     @JoinColumn(name = "brand")
-    private BrandDao brand;
+    private Brand brand;
 
     @OneToMany
-    private List<OrderDao> orders;
+    private List<Order> orders;
 
 }

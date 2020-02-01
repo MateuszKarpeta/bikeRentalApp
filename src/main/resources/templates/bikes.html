@@ -8,18 +8,25 @@
     <title>Bikes</title>
 </head>
 <body>
+<div th:replace="fragments/navbar"></div>
 <div class="container my-3">
     <table class="table">
         <thead>
         <tr>
+            <th>Brand</th>
             <th>Name</th>
             <th>Frame</th>
+            <th>Price per day</th>
+            <th>Model year</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="b : ${bikes}">
+            <td th:text="${b.brand.brandName}"></td>
             <td th:text="${b.name}"></td>
             <td th:text="${b.frameSize}"></td>
+            <td th:text="${b.price}"></td>
+            <td th:text="${b.modelYear}"></td>
         </tr>
         </tbody>
     </table>

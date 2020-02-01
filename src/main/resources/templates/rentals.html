@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Rentals</title>
+</head>
+<body>
+<div th:replace="fragments/navbar"></div>
+
+<h3 class="text-center" th:if="${rentals.isEmpty()}"><br>There are no rentals yet, please rent our bike!</h3>
+
+<div class="container my-3" th:if="${!rentals.isEmpty()}">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Bike name</th>
+            <th>Rental start</th>
+            <th>Rental end</th>
+            <th>Days</th>
+            <th>Price per day</th>
+            <th>Rental price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="r : ${rentals}">
+            <td th:text="${r.bike.name}"></td>
+            <td th:text="${#temporals.format(r.rental.rentStartDate,'dd-MM-yyyy')}"></td>
+            <td th:text="${#temporals.format(r.rental.rentEndDate,'dd-MM-yyyy')}"></td>
+            <td th:text="${r.rental.getNumberOfDays()}"></td>
+            <td th:text="${r.bike.price}"></td>
+            <td th:text="${r.rentalPrice}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

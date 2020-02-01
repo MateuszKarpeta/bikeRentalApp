@@ -1,39 +1,46 @@
 package pl.bikepoint.rental.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import pl.bikepoint.rental.dao.bike.BikeDao;
-import pl.bikepoint.rental.dao.contract.OrderDao;
-import pl.bikepoint.rental.dao.contract.RentalDurationDao;
+import org.springframework.web.servlet.view.RedirectView;
+import pl.bikepoint.rental.dao.contract.Order;
+import pl.bikepoint.rental.dao.contract.RentalDuration;
 import pl.bikepoint.rental.repository.BikeRepository;
+import pl.bikepoint.rental.services.RentalService;
 
 @RestController
 @RequestMapping("/rentals")
 public class RentalController {
 
     private final BikeRepository bikeRepository;
+    private final RentalService rentalService;
 
-    public RentalController(BikeRepository bikeRepository) {
+    public RentalController(BikeRepository bikeRepository, RentalService rentalService) {
         this.bikeRepository = bikeRepository;
+        this.rentalService = rentalService;
     }
 
     @GetMapping
     public ModelAndView getAllRentals() {
         ModelAndView mav = new ModelAndView("rentals");
-        mav.addObject("rentals");
+        mav.addObject("rentals", rentalService.findAllRentals());
         return mav;
     }
 
     @GetMapping("add")
     public ModelAndView getAddRentalForm() {
         ModelAndView mav = new ModelAndView("add-rental");
-        mav.addObject("order", new OrderDao());
-        mav.addObject("bike", new BikeDao());
-        mav.addObject("rental", new RentalDurationDao());
+        mav.addObject("order", new Order());
+        mav.addObject("rental", new RentalDuration());
         mav.addObject("bikes", bikeRepository.findAll());
         return mav;
+    }
+
+    @PostMapping("add")
+    public RedirectView addRental(@ModelAttribute Order order,
+                                  @ModelAttribute RentalDuration rental) {
+        rentalService.rentBike(order, rental);
+        return new RedirectView("/rentals");
     }
 
 

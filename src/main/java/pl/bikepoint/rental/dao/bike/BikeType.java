@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Builder
 @Table(name = "bike_type")
 @Entity
-public class BikeTypeDao implements Serializable {
+public class BikeType implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

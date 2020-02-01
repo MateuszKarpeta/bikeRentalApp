@@ -11,9 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "brands")
+@Table(name = "brand")
 @Entity
-public class BrandDao implements Serializable {
+public class Brand implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,5 +21,5 @@ public class BrandDao implements Serializable {
     private String brandName;
 
     @OneToMany
-    private List<BikeDao> bikes;
+    private List<Bike> bikes;
 }

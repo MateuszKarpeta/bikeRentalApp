@@ -8,12 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 import pl.bikepoint.rental.services.impl.BikeServiceImpl;
 
 @RestController
-@RequestMapping(value = "/bikes")
+@RequestMapping(value = {"/bikes", ""})
 public class BikeController {
 
-  private final BikeServiceImpl bikeServiceImpl;
+    private final BikeServiceImpl bikeServiceImpl;
 
-  @Autowired
+    @Autowired
     public BikeController(BikeServiceImpl bikeServiceImpl) {
         this.bikeServiceImpl = bikeServiceImpl;
     }
@@ -24,4 +24,5 @@ public class BikeController {
         mav.addObject("bikes", bikeServiceImpl.findAllBikes());
         return mav;
     }
+
 }
