@@ -23,6 +23,9 @@ public class RentalDuration {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate rentEndDate;
 
+    private boolean pedals;
+    private boolean helmet;
+
     public int getNumberOfDays(){
         return Period.between(rentStartDate,rentEndDate).getDays();
     }

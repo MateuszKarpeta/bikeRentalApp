@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import pl.bikepoint.rental.dao.contract.Order;
 import pl.bikepoint.rental.dao.contract.RentalDuration;
 import pl.bikepoint.rental.repository.OrderRepository;
-import pl.bikepoint.rental.repository.RentalRepository;
 import pl.bikepoint.rental.services.RentalService;
 
 import java.math.BigDecimal;
@@ -16,18 +15,15 @@ import java.util.List;
 public class RentalServiceImpl implements RentalService {
 
     private final OrderRepository orderRepository;
-    private final RentalRepository rentalRepository;
 
-    public RentalServiceImpl(OrderRepository orderRepository, RentalRepository rentalRepository) {
+    public RentalServiceImpl(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
-        this.rentalRepository = rentalRepository;
     }
 
     @Override
     public void rentBike(Order order, RentalDuration rental) {
         order.setRental(rental);
         order.setRentalPrice(calculatePrice(order));
-//        rentalRepository.save(rental);
         orderRepository.save(order);
     }
 
