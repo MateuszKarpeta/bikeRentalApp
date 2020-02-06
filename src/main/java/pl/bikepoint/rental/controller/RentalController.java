@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 import pl.bikepoint.rental.dao.contract.Order;
-import pl.bikepoint.rental.dao.contract.RentalDuration;
+import pl.bikepoint.rental.dao.contract.RentalDetails;
 import pl.bikepoint.rental.repository.BikeRepository;
 import pl.bikepoint.rental.services.RentalService;
 
@@ -31,14 +31,14 @@ public class RentalController {
     public ModelAndView getAddRentalForm() {
         ModelAndView mav = new ModelAndView("add-rental");
         mav.addObject("order", new Order());
-        mav.addObject("rental", new RentalDuration());
+        mav.addObject("rental", new RentalDetails());
         mav.addObject("bikes", bikeRepository.findAll());
         return mav;
     }
 
     @PostMapping("add")
     public RedirectView addRental(@ModelAttribute Order order,
-                                  @ModelAttribute RentalDuration rental) {
+                                  @ModelAttribute RentalDetails rental) {
         rentalService.rentBike(order, rental);
         return new RedirectView("/rentals");
     }

@@ -1,16 +1,17 @@
 package pl.bikepoint.rental.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum PedalType {
-    STANDARD_FLAT(10),
-    SHIMANO_SPD(20);
+    STANDARD_FLAT(5,"Standard flat"),
+    SHIMANO_SPD(10,"Shimano SPD");
 
     private int price;
+    private String description;
 
-    PedalType(int price) {
+    PedalType(int price, String description) {
         this.price = price;
-    }
-
-    public int getPrice() {
-        return price;
+        this.description = description;
     }
 }

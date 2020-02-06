@@ -21,6 +21,7 @@
             <th>Rental end</th>
             <th>Days</th>
             <th>Price per day</th>
+            <th>Pedals</th>
             <th>Rental price</th>
         </tr>
         </thead>
@@ -30,7 +31,8 @@
             <td th:text="${#temporals.format(r.rental.rentStartDate,'dd-MM-yyyy')}"></td>
             <td th:text="${#temporals.format(r.rental.rentEndDate,'dd-MM-yyyy')}"></td>
             <td th:text="${r.rental.getNumberOfDays()}"></td>
-            <td th:text="${r.bike.price}"></td>
+            <td th:text="${r.rentalPrice / r.rental.getNumberOfDays()}"></td>
+            <td th:text="${r.rental.pedalType.getDescription()}"></td>
             <td th:text="${r.rentalPrice}"></td>
         </tr>
         </tbody>

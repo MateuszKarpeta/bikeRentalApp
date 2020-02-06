@@ -22,7 +22,7 @@
         <div class="card-body">
             <div class="col-md-8">
                 <form action="#" th:action="@{/rentals/add}" th:method="post">
-                    <div class="column">
+                    <div class="row">
                         <div class="form-group col-md-6">
                             <label for="bike" class="col-form-label">Bike</label>
                             <select th:field="*{order.bike}" class="form-control" id="bike">
@@ -30,17 +30,33 @@
                                         th:value="${bike.id}" th:text="${bike.name}"></option>
                             </select>
                         </div>
-
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
+                            <label for="pedalType" class="col-form-label">Pedal type</label>
+                            <select th:field="*{rental.pedalType}" class="form-control" id="pedalType">
+                                <option th:each="pedalType : ${T(pl.bikepoint.rental.enums.PedalType).values()}"
+                                        th:value="${pedalType}" th:text="${pedalType.getDescription()}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
                             <label for="rentalStartDate" class="col-form-label">Rental start date</label>
                             <input type="date" th:field="*{rental.rentStartDate}" class="form-control"
                                    id="rentalStartDate">
                         </div>
-
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <label for="rentalEndDate" class="col-form-label">Rental end date</label>
                             <input type="date" th:field="*{rental.rentEndDate}" class="form-control"
                                    id="rentalEndDate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group col-md-6">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="helmetRented"
+                                       th:field="*{rental.helmetRented}">
+                                <label for="helmetRented" class="form-check-label">Rent helmet?</label>
+                            </div>
                         </div>
 
                         <div class="col-md-6">
@@ -52,7 +68,6 @@
         </div>
     </div>
 </div>
-<!--<div th:replace="fragments/footer"></div>-->
 </body>
 
 </html>

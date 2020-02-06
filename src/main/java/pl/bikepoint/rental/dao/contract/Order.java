@@ -19,11 +19,9 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private BigDecimal rentalPrice;
-    private Float helmetPrice;
-    private Float pedalPrice;
 
     @OneToOne(cascade = CascadeType.ALL)
-    private RentalDuration rental;
+    private RentalDetails rental;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Bike bike;
