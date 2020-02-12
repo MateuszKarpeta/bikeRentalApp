@@ -1,6 +1,9 @@
 package pl.bikepoint.rental.dao.contract;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import pl.bikepoint.rental.dao.bike.Bike;
 
 import javax.persistence.*;
@@ -25,5 +28,8 @@ public class Order implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Bike bike;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private User user;
 
 }

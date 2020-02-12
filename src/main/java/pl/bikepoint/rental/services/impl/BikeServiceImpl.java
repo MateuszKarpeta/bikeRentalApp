@@ -33,4 +33,5 @@ public class BikeServiceImpl implements BikeService {
     public void addBike(Bike bike) {
         bikeRepository.save(bike);
     }
+
 }
