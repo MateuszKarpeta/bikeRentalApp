@@ -22,11 +22,8 @@
             <th>Days</th>
             <th>Price per day</th>
             <th>Pedals</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Email</th>
-            <th>Phone number</th>
-
+            <th>Total price</th>
+            <th>Customer name</th>
         </tr>
         </thead>
         <tbody>
@@ -38,10 +35,7 @@
             <td th:text="${r.rentalPrice / r.rental.getNumberOfDays()}"></td>
             <td th:text="${r.rental.pedalType.getDescription()}"></td>
             <td th:text="${r.rentalPrice}"></td>
-            <td th:text="${r.user.firstName}"></td>
-            <td th:text="${r.user.lastName}"></td>
-            <td th:text="${r.user.phoneNo}"></td>
-            <td th:text="${r.user.email}"></td>
+            <td th:text="${r.user.firstName} + ' ' + ${r.user.lastName}"></td>
         </tr>
         </tbody>
     </table>

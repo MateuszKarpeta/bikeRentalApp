@@ -60,25 +60,25 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="form-group col-md-6">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" value="" id="helmetRented"
-                                           th:field="*{rental.helmetRented}">
-                                    <label for="helmetRented" class="form-check-label">Rent helmet?</label>
-                                </div>
+                            <br>
+                            <br>
+                            <h2>Customer details</h2>
+                            <div class="form-group col-md-8">
+                                <label for="firstName" class="col-form-label">First Name</label>
+                                <input type="text" th:field="*{user.firstName}" class="form-control" id="firstName" placeholder="First name">
                             </div>
                             <div class="form-group col-md-8">
-                                <label for="firstName" class="col-form-label">First Name</label> <input type="text" th:field="*{firstName}" class="form-control" id="firstName" placeholder="firstName"> <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="text-danger"></span>
+                                <label for="lastName" class="col-form-label">Last Name</label>
+                                <input type="text" th:field="*{user.lastName}" class="form-control" id="lastName" placeholder="Last name">
                             </div>
                             <div class="form-group col-md-8">
-                                <label for="lastName" class="col-form-label">Last Name</label> <input type="text" th:field="*{lastName}" class="form-control" id="lastName" placeholder="lastName"> <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="text-danger"></span>
-                            </div>
-                            <div class="form-group col-md-8">
-                                <label for="phoneNo" class="col-form-label">Phone No</label> <input type="text" th:field="*{phoneNo}" class="form-control" id="phoneNo" placeholder="PhoneNo"> <span th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}" class="text-danger"></span>
+                                <label for="phoneNo" class="col-form-label">Phone No</label>
+                                <input type="text" th:field="*{user.phoneNo}" class="form-control" id="phoneNo" placeholder="Phone number">
                             </div>
 
                             <div class="form-group col-md-8">
-                                <label for="email" class="col-form-label">Email</label> <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="email"> <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+                                <label for="email" class="col-form-label">Email</label>
+                                <input type="text" th:field="*{user.email}" class="form-control" id="email" placeholder="Email">
                             </div>
 
                         <div class="col-md-6">
