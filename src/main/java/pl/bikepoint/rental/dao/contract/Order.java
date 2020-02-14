@@ -22,6 +22,7 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private BigDecimal rentalPrice;
+    private String discountCode;
 
     @OneToOne(cascade = CascadeType.ALL)
     private RentalDetails rental;

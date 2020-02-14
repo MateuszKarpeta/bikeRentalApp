@@ -22,17 +22,11 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@NotBlank(message = "Name is mandatory")
-    @Size(min=2, max=30)
     private String firstName;
 
-    //@NotBlank(message = "Last name is mandatory")
-    @Size(min=2, max=30)
     private String lastName;
 
-    //@NotBlank(message = "Email is mandatory")
     private String email;
 
-    //@NotBlank(message = "Phone number is mandatory")
     private long phoneNo;
 }

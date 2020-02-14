@@ -15,4 +15,8 @@ INSERT INTO brand_bikes (brand_id, bikes_id)
 VALUES (1, 1),
        (2, 2);
 
+INSERT INTO discount (name, value)
+VALUES ('PROMO5',0.05),
+       ('PROMO10',0.1);
+
 
